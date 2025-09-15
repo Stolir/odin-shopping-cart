@@ -1,0 +1,113 @@
+import { it, expect, describe, afterEach } from 'vitest'
+import { render, screen } from '@testing-library/react'
+import Navbar from './Navbar'
+import userEvent from '@testing-library/user-event'
+import { MemoryRouter, Route, Routes } from 'react-router'
+
+
+describe('Navbar', () => {
+  const originalInnerWidth = window.innerWidth;
+  const originalInnerHeight = window.innerHeight;
+
+  afterEach(() => {
+    window.innerWidth = originalInnerWidth;
+    window.innerHeight = originalInnerHeight;
+    window.dispatchEvent(new Event('resize'));
+  })
+
+  const setMobileViewport = () => {
+    window.innerWidth = 375;
+    window.dispatchEvent(new Event('resize'));
+  }
+
+  const mockRoutes = [
+    { path: '/', element: <h1>Home Page</h1> },
+    { path: 'profile', element: <h1>Profile Page</h1> },
+    { path: 'cart', element: <h1>Cart Page</h1> },
+  ]
+  const renderNavbar = () => {
+    render(
+      <MemoryRouter>
+        <Navbar />
+        <Routes>
+          {mockRoutes.map((route) => (
+            <Route key={route.path} path={route.path} element={route.element}/>
+          ))}
+        </Routes>
+      </MemoryRouter>
+    )
+  }
+
+  it('should render correct content', () => {
+    render(<Navbar />);
+
+    expect(screen.getByRole('button', { name: /open menu/i })).toBeInTheDocument();
+    expect(screen.getByRole('button', { name: /search/i })).toBeInTheDocument();
+    expect(screen.getByRole('link', { name: /go.*profile/i} )).toBeInTheDocument();
+    expect(screen.getByRole('link', { name: /go.*cart/i })).toBeInTheDocument();
+    expect(screen.getByRole('heading', { name: /stolaris/i })).toBeInTheDocument();
+  })
+
+  it('should expand menu when menu button is clicked', async () => {
+    render(<Navbar />)
+    const menuBtn = screen.getByRole('button', /open menu/i);
+    const user = userEvent.setup();
+
+    await user.click(menuBtn);
+    const navList = await screen.findByRole('list', { name: /nav.*list/i})
+
+    expect(navList).toBeInTheDocument();
+  })
+
+  it('should render correct content on smaller screens', () => {
+    setMobileViewport();
+    render(<Navbar />)
+
+    expect(screen.queryByRole('button', { name: /open menu/i })).toBeInTheDocument();
+    expect(screen.queryByRole('button', { name: /search/i })).not.toBeInTheDocument();
+    expect(screen.queryByRole('link', { name: /go.*profile/i} )).not.toBeInTheDocument();
+    expect(screen.queryByRole('link', { name: /go.*cart/i })).not.toBeInTheDocument();
+    expect(screen.getByRole('heading', { name: /stolaris/i })).toBeInTheDocument();
+  })
+
+  it('should show search bar when search button is clicked', async () => {
+    render(<Navbar />)
+    const user = userEvent.setup();
+    const searchBtn = screen.getByRole('button', { name: /search/i });
+
+    await user.click(searchBtn);
+    const searchBar = await screen.findByLabelText(/search bar/i);
+
+    expect(searchBar).toBeInTheDocument();
+  })
+
+  it('should render profile page when profile is clicked', async () => {
+    renderNavbar();
+    const user = userEvent.setup();
+    const profileBtn = screen.getByRole('link', { name: /go.*profile/i })
+
+    await user.click(profileBtn)
+    
+    expect(await screen.findByRole('heading', { name: /profile page/i })).toBeInTheDocument();
+  })
+
+  it('should render cart page when cart is clicked', async () => {
+    renderNavbar();
+    const user = userEvent.setup();
+    const cartBtn = screen.getByRole('link', { name: /go.*cart/i })
+
+    await user.click(cartBtn)
+    
+    expect(await screen.findByRole('heading', { name: /cart page/i })).toBeInTheDocument();
+  })
+
+  it('should render home page when logo is clicked', async () => {
+    renderNavbar();
+    const user = userEvent.setup();
+    const homeBtn = screen.getByRole('link', { name: /go.*home/i })
+
+    await user.click(homeBtn)
+    
+    expect(await screen.findByRole('heading', { name: /home page/i })).toBeInTheDocument();
+  })
+})
