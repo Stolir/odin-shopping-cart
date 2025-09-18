@@ -42,7 +42,7 @@ describe('Navbar', () => {
     renderNavbar();
 
     expect(screen.queryByRole('button', { name: /open menu/i })).toBeInTheDocument();
-    expect(screen.queryByRole('button', { name: /search/i })).toBeInTheDocument();
+    expect(screen.queryByRole('button', { name: /^search$/i })).toBeInTheDocument();
     expect(screen.queryByRole('link', { name: /go.*profile/i} )).toBeInTheDocument();
     expect(screen.queryByRole('link', { name: /go.*cart/i })).toBeInTheDocument();
     expect(screen.queryByRole('link', { name: /stolaris/i })).toBeInTheDocument();
@@ -50,7 +50,7 @@ describe('Navbar', () => {
 
   it('should expand menu when menu button is clicked', async () => {
     renderNavbar();
-    const menuBtn = screen.getByRole('button', /open menu/i);
+    const menuBtn = screen.getByRole('button', {name: /open menu/i});
     const user = userEvent.setup();
 
     await user.click(menuBtn);
@@ -59,10 +59,10 @@ describe('Navbar', () => {
     expect(navList).toBeInTheDocument();
   })
 
-  it('should show search bar when search button is clicked', async () => {
+  it('should show search overlay when search button is clicked', async () => {
     renderNavbar();
     const user = userEvent.setup();
-    const searchBtn = screen.getByRole('button', { name: /search/i });
+    const searchBtn = screen.getByRole('button', { name: /^search$/i });
 
     await user.click(searchBtn);
     const searchBar = await screen.findByRole('searchbox', {name: /.*search.*/i});
