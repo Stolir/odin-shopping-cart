@@ -22,7 +22,7 @@ function SearchOverlay({ isOpen, onClose }) {
             className={`${styles.logo}`}>
             <img src={logo} alt='stolaris'/>
           </button>
-          <button className={styles.closeButton} onClick={onClose}>
+          <button className={styles.closeButton} onClick={onClose} aria-label='close search'>
             <Xmark />
           </button>
         </div>
@@ -35,9 +35,9 @@ function SearchOverlay({ isOpen, onClose }) {
               value={value}
               onChange={(e) => {setValue(e.target.value)}}
               />
-              <button className={`${styles.clearButton} ${!value ? 'hide' : ''}`} onClick={() => setValue('')}>
+            {value && <button className={styles.clearButton} onClick={() => setValue('')}>
                 Erase
-              </button>
+              </button>}
         </div>
       </div>
     </FocusTrap>

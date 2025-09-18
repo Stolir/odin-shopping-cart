@@ -3,7 +3,7 @@ import logo from '../../assets/logo.png'
 import { Search, Menu, User, ShoppingBag } from 'iconoir-react'
 import { Link } from 'react-router'
 import { useState } from 'react'
-import SearchOverlay from '../SearchOverlay.jsx/SearchOverlay'
+import SearchOverlay from '../SearchOverlay/SearchOverlay'
 
 
 
