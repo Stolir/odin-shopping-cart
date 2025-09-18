@@ -65,7 +65,7 @@ describe('Navbar', () => {
     const searchBtn = screen.getByRole('button', { name: /search/i });
 
     await user.click(searchBtn);
-    const searchBar = await screen.findByLabelText(/search bar/i);
+    const searchBar = await screen.findByRole('searchbox', {name: /.*search.*/i});
 
     expect(searchBar).toBeInTheDocument();
   })

@@ -1,0 +1,88 @@
+.header {
+  position: relative;
+  display: flex;
+  grid-template-columns: max-content max-content 1fr max-content max-content;
+  grid-template-areas: 'menu search logo profile cart';
+  width: 100%;
+  align-items: center;
+  justify-items: center;
+  padding: 1.5rem;
+  gap: 1rem;
+  background-color: rgb(255, 255, 255);
+}
+
+
+.logo {
+  margin: auto;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.menu, .search, .profile, .cart, .logo {
+  flex-shrink: 0;
+}
+
+.menu {
+  margin-left: 3vw;
+}
+
+.cart {
+  margin-right: 3vw;
+}
+
+.link {
+  text-decoration: none;
+  color: black;
+}
+
+.button {
+  border: none;
+  background: none;
+}
+
+.button, .link {
+  cursor: pointer;
+  padding: 0.5rem;
+  width: max-content;
+  height: max-content;
+}
+
+.logo img {
+  width: auto;
+  margin: auto;
+  height: 26px;
+}
+
+.menu, .search {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+}
+
+.menu span, .search span {
+  font-weight: 400;
+  font-size: 0.8rem;
+}
+
+.search {
+  margin-right: auto;
+}
+
+@media (max-width: 768px) {
+  .menu span, .search span  {
+    display: none;
+  }
+}
+
+@media (max-width: 550px) {
+  /* .profile, .cart {
+    display: none;
+  } */
+
+  .logo img {
+    width: auto;
+    margin: auto;
+    height: 20px;
+}
+}
