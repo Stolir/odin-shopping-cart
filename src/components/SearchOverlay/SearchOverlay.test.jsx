@@ -1,9 +1,7 @@
-import { it, expect, describe, vi } from 'vitest'
 import { render, screen } from '@testing-library/react'
 import SearchOverlay from './SearchOverlay'
 import { MemoryRouter } from 'react-router'
 import userEvent from '@testing-library/user-event'
-import { act } from 'react'
 
 describe('Search Overlay', () => {
 
@@ -20,9 +18,9 @@ describe('Search Overlay', () => {
   it('should render correct base content', () => {
     renderSearchOverlay();
 
-    expect(screen.getByRole('button', {name: /stolaris/i}))
-    expect(screen.getByRole('button', {name: /close.*search.*/i}))
-    expect(screen.getByRole('searchbox', {name: /.*search.*/i}))
+    expect(screen.getByRole('button', {name: /stolaris/i})).toBeInTheDocument()
+    expect(screen.getByRole('button', {name: /close.*search.*/i})).toBeInTheDocument()
+    expect(screen.getByRole('searchbox', {name: /.*search.*/i})).toBeInTheDocument()
   })
 
   it('should not render erase button when input is empty', async () => {

@@ -14,8 +14,7 @@ function SearchOverlay({ isOpen, onClose }) {
   return (
     <FocusTrap 
       active={isOpen}  
-      focusTrapOptions={{fallbackFocus: '#search'
-    }}>
+      focusTrapOptions={{fallbackFocus: '#search'}}>
       <div className={`${styles.searchOverlay} ${isOpen ? styles.active : ''}`}>
         <div className={styles.overlayControls}>
           <button onClick={() => {
