@@ -11,11 +11,19 @@ function SearchOverlay({ isOpen, onClose }) {
 
   const [value, setValue] = useState('')
 
+  const handleEscape = (e) => {
+    if (e.key === 'Escape' && isOpen) { onClose() }  
+  }
+
   return (
     <FocusTrap 
       active={isOpen}  
       focusTrapOptions={{fallbackFocus: '#search'}}>
-      <div className={`${styles.searchOverlay} ${isOpen ? styles.active : ''}`}>
+      <div 
+        className={`${styles.searchOverlay} ${isOpen ? styles.active : ''}`}
+        onKeyDown={(e) => handleEscape(e)}
+        inert={!isOpen}
+        > 
         <div className={styles.overlayControls}>
           <button onClick={() => {
             navigate('/')

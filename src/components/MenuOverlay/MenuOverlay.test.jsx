@@ -35,6 +35,24 @@ describe('Menu Overlay', () => {
 
     await user.click(closeBtn);
 
-    expect(onClose).toHaveBeenCalled();
+    expect(onClose).toHaveBeenCalledTimes(1);
+  })
+
+  it('should call onClose when menu is open and Escape is pressed', async () => {
+    renderMenuOverlay(true);
+    const user = userEvent.setup();
+    
+    await user.keyboard('{Escape}');
+
+    expect(onClose).toHaveBeenCalledTimes(1)
+  })
+
+  it('should not call onClose when menu is closed and Escape is pressed', async () => {
+    renderMenuOverlay(false);
+    const user = userEvent.setup();
+    
+    await user.keyboard('{Escape}');
+
+    expect(onClose).not.toHaveBeenCalled()
   })
 })

@@ -53,7 +53,7 @@
   padding: 0;
 }
 
-.navMenu .navList:hover .li {
+.navMenu .navList:hover li {
   color: rgba(0, 0, 0, 0.753);
 }
 
@@ -64,6 +64,9 @@
 .navMenu .navList li {
   text-decoration: none;
   list-style: none;
+}
+
+.navMenu .navList li a {
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -84,12 +87,15 @@
 }
 
 .navList li a {
-  position: relative;
   text-decoration: none;
   color: black;
 }
 
-.navList li a::after {
+.navList li a span {
+  position: relative;
+}
+
+.navList li a span::after {
   content: '';
   position: absolute;
   left: 0;
@@ -100,10 +106,8 @@
   transition: width 0.3s ease;
 }
 
-.navList li:hover {
-  a::after {
-    width: 100%;
-  }
+.navList li:hover a span::after {
+  width: 100%;
 }
 
 

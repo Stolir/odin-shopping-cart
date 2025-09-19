@@ -2,6 +2,7 @@ import { render, screen } from '@testing-library/react'
 import SearchOverlay from './SearchOverlay'
 import { MemoryRouter } from 'react-router'
 import userEvent from '@testing-library/user-event'
+import { beforeEach, expect } from 'vitest'
 
 describe('Search Overlay', () => {
 
@@ -15,12 +16,44 @@ describe('Search Overlay', () => {
 
   const onClose = vi.fn();
 
+  beforeEach(() => {
+    onClose.mockReset();
+  })
+
   it('should render correct base content', () => {
     renderSearchOverlay();
 
     expect(screen.getByRole('button', {name: /stolaris/i})).toBeInTheDocument()
     expect(screen.getByRole('button', {name: /close.*search.*/i})).toBeInTheDocument()
     expect(screen.getByRole('searchbox', {name: /.*search.*/i})).toBeInTheDocument()
+  })
+
+  it('should call onClose when close button is clicked', async () => {
+    renderSearchOverlay();
+    const user = userEvent.setup()
+    const closeBtn = screen.getByRole('button', {name: /close.*search.*/i})
+
+    await user.click(closeBtn);
+
+    expect(onClose).toHaveBeenCalledTimes(1);
+  })
+
+  it('should call onClose when search overlay is open and Escape is pressed', async () => {
+    renderSearchOverlay(true);
+    const user = userEvent.setup()
+
+    await user.keyboard('{Escape}');
+
+    expect(onClose).toHaveBeenCalledTimes(1);
+  })
+
+  it('should not call onClose when search overlay is closed and Escape is pressed', async () => {
+    renderSearchOverlay(false);
+    const user = userEvent.setup()
+
+    await user.keyboard('{Escape}');
+
+    expect(onClose).not.toHaveBeenCalled();
   })
 
   it('should not render erase button when input is empty', async () => {
@@ -53,6 +86,5 @@ describe('Search Overlay', () => {
     await user.click(eraseBtn);
     
     expect(searchInput).toHaveValue('')
-  })
-
+  }) 
 })
