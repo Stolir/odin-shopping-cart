@@ -1,4 +1,3 @@
-import { it, expect, describe, afterEach } from 'vitest'
 import { render, screen } from '@testing-library/react'
 import Navbar from './Navbar'
 import userEvent from '@testing-library/user-event'
@@ -6,19 +5,6 @@ import { MemoryRouter, Route, Routes } from 'react-router'
 
 
 describe('Navbar', () => {
-  // const originalInnerWidth = window.innerWidth;
-  // const originalInnerHeight = window.innerHeight;
-
-  // afterEach(() => {
-  //   window.innerWidth = originalInnerWidth;
-  //   window.innerHeight = originalInnerHeight;
-  //   window.dispatchEvent(new Event('resize'));
-  // })
-
-  // const setMobileViewport = () => {
-  //   window.innerWidth = 375;
-  //   window.dispatchEvent(new Event('resize'));
-  // }
 
   const mockRoutes = [
     { path: '/', element: <h1>Home Page</h1> },
@@ -54,7 +40,7 @@ describe('Navbar', () => {
     const user = userEvent.setup();
 
     await user.click(menuBtn);
-    const navList = await screen.findByRole('list', { name: /nav.*list/i})
+    const navList = await screen.findByRole('navigation', { name: /^main menu$/i})
 
     expect(navList).toBeInTheDocument();
   })

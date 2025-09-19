@@ -4,6 +4,7 @@ import { Search, Menu, User, ShoppingBag } from 'iconoir-react'
 import { Link } from 'react-router'
 import { useState } from 'react'
 import SearchOverlay from '../SearchOverlay/SearchOverlay'
+import MenuOverlay from '../MenuOverlay/MenuOverlay'
 
 
 
@@ -15,11 +16,17 @@ function Navbar() {
     setIsSearching(isSearching ? false : true)
   }
 
+  const [isMenuOpen, setIsMenuOpen] = useState(false)
+
+  const toggleMenu = () => {
+    setIsMenuOpen(isMenuOpen ? false : true)
+  }
+
   return (
     <>
       <header className={styles.header}>
 
-        <button className={`${styles.menu} ${styles.button}`} aria-label='open menu'>
+        <button className={`${styles.menu} ${styles.button}`} onClick={toggleMenu} aria-label='open menu'>
           <Menu width={18} height={18} aria-hidden="true"/>
           <span aria-hidden="true">Menu</span>
         </button>
@@ -45,6 +52,7 @@ function Navbar() {
       </header>
 
       <SearchOverlay isOpen={isSearching} onClose={toggleSearching} />
+      <MenuOverlay isOpen={isMenuOpen} onClose={toggleMenu} />
     </>
   )
 }
