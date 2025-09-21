@@ -1,0 +1,31 @@
+.productCard {
+  display: flex;
+  flex-direction: column;
+  padding: 1rem;
+  max-width: 300px;
+  height: auto;
+  gap: 1rem;
+}
+
+.productCard img {
+  width: auto;
+  height: 70%;
+  object-fit: contain;
+  background: url('../../assets/productBackground.png') black;
+  padding: 3rem;
+}
+
+.details {
+  font-size: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+}
+
+.details h6 {
+  font-size: 1rem;
+}
+
+.details p {
+  color: rgba(0, 0, 0, 0.7);
+}
