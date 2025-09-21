@@ -1,14 +1,15 @@
-import React from 'react';
 import { useRouteError } from 'react-router';
+import styles from './RoutingError.module.css';
 
 function RoutingError() {
   const error = useRouteError();
 
   return (
-    <div>
-      <h3>An error has occured.</h3>
+    <div className={styles.routingError}>
+      <h1>An error has occurred</h1>
+      {error.message && <p>{error.message}</p>}
       <p>
-        {error.message} || {error.status}
+        {error.statusText} {error.status}
       </p>
     </div>
   );
