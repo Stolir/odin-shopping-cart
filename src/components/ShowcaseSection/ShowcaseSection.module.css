@@ -1,0 +1,19 @@
+.showcaseSection {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: 4rem;
+}
+
+.cardContainer {
+  display: flex;
+  gap: 5rem;
+  padding: 1rem 4rem;
+}
+
+.showcaseSection h4 {
+  letter-spacing: 2px;
+  font-size: 0.7rem;
+  color: rgb(102, 102, 102);
+}
