@@ -1,7 +1,7 @@
 import { createBrowserRouter } from 'react-router';
 import App from './App';
 import RoutingError from './components/RoutingError/RoutingError';
-import HomePage from './pages/HomePage';
+import HomePage, { allProductsLoader } from './pages/HomePage/HomePage';
 import StorePage from './pages/StorePage';
 import CartPage from './pages/CartPage';
 import ProfilePage from './pages/ProfilePage';
@@ -15,6 +15,7 @@ const router = createBrowserRouter([
       {
         index: true,
         element: <HomePage />,
+        loader: allProductsLoader,
       },
       {
         path: 'profile',
