@@ -1,34 +1,58 @@
-import { FocusTrap } from 'focus-trap-react'
-import styles from './MenuOverlay.module.css'
-import { NavArrowRight, Xmark } from 'iconoir-react'
+import { FocusTrap } from 'focus-trap-react';
+import styles from './MenuOverlay.module.css';
+import { NavArrowRight, Xmark } from 'iconoir-react';
+import { Link } from 'react-router';
 
-function MenuOverlay({ isOpen, onClose}) {
-
+function MenuOverlay({ isOpen, onClose }) {
   const handleEscape = (e) => {
-    if (e.key === 'Escape' && isOpen) { onClose() }  
-  }
+    if (e.key === 'Escape' && isOpen) {
+      onClose();
+    }
+  };
 
   return (
-    <FocusTrap 
-      active={isOpen} 
-      focusTrapOptions={{ fallbackFocus: '[aria-label="close menu"]' }}>
-      <div 
-        className={`${styles.menuOverlay} ${isOpen ? styles.active : ''}`} 
-        onClick={onClose} 
-        onKeyDown={(e) =>handleEscape(e)}
+    <FocusTrap
+      active={isOpen}
+      focusTrapOptions={{ fallbackFocus: '[aria-label="close menu"]' }}
+    >
+      <div
+        className={`${styles.menuOverlay} ${isOpen ? styles.active : ''}`}
+        onClick={onClose}
+        onKeyDown={(e) => handleEscape(e)}
         inert={!isOpen}
-        >
+      >
         <div className={styles.menuPanel} onClick={(e) => e.stopPropagation()}>
           <button type='button' aria-label='close menu' onClick={onClose}>
-            <Xmark width={20} height={20}/>
-            <span aria-hidden="true">Close</span>
+            <Xmark width={20} height={20} />
+            <span aria-hidden='true'>Close</span>
           </button>
           <nav className={styles.navMenu} aria-label='main menu'>
             <ul className={styles.navList}>
-              <li><a href=""><span>Men</span> <NavArrowRight /></a></li>
-              <li><a href=""><span>Women</span> <NavArrowRight /></a> </li>
-              <li><a href=""><span>Perfumes</span> <NavArrowRight /></a> </li>
-              <li><a href=""><span>Watches</span> <NavArrowRight /></a> </li>
+              <li onClick={onClose}>
+                <Link to='/store'>
+                  <span>All Products</span> <NavArrowRight />
+                </Link>
+              </li>
+              <li>
+                <a href=''>
+                  <span>Men</span> <NavArrowRight />
+                </a>
+              </li>
+              <li>
+                <a href=''>
+                  <span>Women</span> <NavArrowRight />
+                </a>{' '}
+              </li>
+              <li>
+                <a href=''>
+                  <span>Perfumes</span> <NavArrowRight />
+                </a>{' '}
+              </li>
+              <li>
+                <a href=''>
+                  <span>Watches</span> <NavArrowRight />
+                </a>{' '}
+              </li>
             </ul>
           </nav>
           <br />
@@ -38,10 +62,9 @@ function MenuOverlay({ isOpen, onClose}) {
             <p>stolaris@example.com</p>
           </div>
         </div>
-
       </div>
     </FocusTrap>
-  )
+  );
 }
 
-export default MenuOverlay
+export default MenuOverlay;

@@ -1,12 +1,11 @@
-import { Link } from "react-router"
+import { Link } from 'react-router';
 
 function HomePage() {
   return (
-    <div>
+    <div className='pagePlaceholder'>
       <h1>Home Page</h1>
-      <Link to='/store'>Explore Products</Link>
     </div>
-  )
+  );
 }
 
-export default HomePage
+export default HomePage;

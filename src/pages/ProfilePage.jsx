@@ -1,7 +1,9 @@
 function ProfilePage() {
   return (
-    <h1>Profile Page</h1>
-  )
+    <div className='pagePlaceholder'>
+      <h1>Profile Page</h1>
+    </div>
+  );
 }
 
-export default ProfilePage
+export default ProfilePage;

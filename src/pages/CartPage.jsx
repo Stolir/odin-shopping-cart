@@ -1,7 +1,9 @@
 function CartPage() {
   return (
-    <h1>Cart Page</h1>
-  )
+    <div className='pagePlaceholder'>
+      <h1>Cart Page</h1>
+    </div>
+  );
 }
 
-export default CartPage
+export default CartPage;

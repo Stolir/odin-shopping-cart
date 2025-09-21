@@ -1,10 +1,10 @@
-import { createBrowserRouter } from "react-router";
-import App from "./App";
-import RoutingError from "./components/RoutingError/RoutingError";
-import HomePage from "./pages/HomePage";
-import StorePage from "./pages/StorePage";
-import CartPage from "./pages/CartPage";
-import ProfilePage from "./pages/ProfilePage";
+import { createBrowserRouter } from 'react-router';
+import App from './App';
+import RoutingError from './components/RoutingError/RoutingError';
+import HomePage from './pages/HomePage';
+import StorePage from './pages/StorePage';
+import CartPage from './pages/CartPage';
+import ProfilePage from './pages/ProfilePage';
 
 const router = createBrowserRouter([
   {
@@ -14,22 +14,22 @@ const router = createBrowserRouter([
     children: [
       {
         index: true,
-        element: <HomePage />
+        element: <HomePage />,
       },
       {
         path: 'profile',
-        element: <ProfilePage />
+        element: <ProfilePage />,
       },
       {
         path: 'store',
-        element: <StorePage />
+        element: <StorePage />,
       },
       {
         path: 'cart',
-        element: <CartPage />
-      }
-    ]
-  }
-])
+        element: <CartPage />,
+      },
+    ],
+  },
+]);
 
 export default router;

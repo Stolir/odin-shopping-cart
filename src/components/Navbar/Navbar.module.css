@@ -73,16 +73,16 @@
   .menu span, .search span  {
     display: none;
   }
+
+  .header {
+    padding: 1.5rem 0.5rem;
+  }
 }
 
 @media (max-width: 550px) {
-  /* .profile, .cart {
-    display: none;
-  } */
-
   .logo img {
     width: auto;
     margin: auto;
-    height: 20px;
+    height: 22px;
 }
 }
