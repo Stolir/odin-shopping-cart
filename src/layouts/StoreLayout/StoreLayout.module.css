@@ -1,0 +1,21 @@
+.filters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+  width: 100%;
+  justify-content: center;
+  margin-top: 1rem;
+}
+
+.filters button {
+  background: rgb(243, 243, 243);
+  border: none;
+  padding: 1rem;
+  max-width: 150px;
+  width: 100%;
+}
+
+.filters button:hover {
+  background-color: black;
+  color: white;
+}
