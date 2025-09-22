@@ -45,12 +45,7 @@ function MenuOverlay({ isOpen, onClose }) {
               </li>
               <li>
                 <a href=''>
-                  <span>Perfumes</span> <NavArrowRight />
-                </a>{' '}
-              </li>
-              <li>
-                <a href=''>
-                  <span>Watches</span> <NavArrowRight />
+                  <span>Jewelery</span> <NavArrowRight />
                 </a>{' '}
               </li>
             </ul>
