@@ -1,10 +1,13 @@
 import { createBrowserRouter } from 'react-router';
 import App from './App';
 import RoutingError from './components/RoutingError/RoutingError';
-import HomePage, { allProductsLoader } from './pages/HomePage/HomePage';
-import StorePage from './pages/StorePage';
+import HomePage, { featuredProductsLoader } from './pages/HomePage/HomePage';
+import StorePage, { allProductsLoader } from './pages/StorePage/StorePage';
 import CartPage from './pages/CartPage';
 import ProfilePage from './pages/ProfilePage';
+import StoreLayout from './layouts/StoreLayout/StoreLayout';
+import ShowcaseSection from './components/ShowcaseSection/ShowcaseSection';
+import CategoryWrapper from './components/CategoryWrapper/CategoryWrapper';
 
 const router = createBrowserRouter([
   {
@@ -15,7 +18,7 @@ const router = createBrowserRouter([
       {
         index: true,
         element: <HomePage />,
-        loader: allProductsLoader,
+        loader: featuredProductsLoader,
       },
       {
         path: 'profile',
@@ -23,7 +26,11 @@ const router = createBrowserRouter([
       },
       {
         path: 'store',
-        element: <StorePage />,
+        element: <StoreLayout />,
+        children: [
+          { index: true, element: <StorePage />, loader: allProductsLoader },
+          { path: ':category', element: <CategoryWrapper /> },
+        ],
       },
       {
         path: 'cart',
