@@ -8,12 +8,20 @@
 
 .cardContainer {
   display: flex;
-  gap: 5rem;
+  gap: 1rem 5rem;
   padding: 1rem 4rem;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: stretch;
 }
 
 .showcaseSection h4 {
   letter-spacing: 2px;
   font-size: 0.7rem;
   color: rgb(102, 102, 102);
+  text-align: center;
+}
+
+.showcaseSection h2 {
+  text-align: center;
 }

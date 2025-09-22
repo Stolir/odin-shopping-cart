@@ -5,11 +5,13 @@
   max-width: 300px;
   height: auto;
   gap: 1rem;
+  flex-shrink: 0;
 }
 
 .productCard img {
   width: auto;
   height: 70%;
+  min-height: 350px;
   object-fit: contain;
   background: url('../../assets/productBackground.png') black;
   padding: 3rem;
