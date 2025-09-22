@@ -4,6 +4,21 @@ import { NavArrowRight, Xmark } from 'iconoir-react';
 import { Link } from 'react-router';
 
 function MenuOverlay({ isOpen, onClose }) {
+  const categories = [
+    {
+      category: "men's clothing",
+      displayName: 'Men',
+    },
+    {
+      category: "women's clothing",
+      displayName: 'Women',
+    },
+    {
+      category: 'jewelery',
+      displayName: 'Jewelery',
+    },
+  ];
+
   const handleEscape = (e) => {
     if (e.key === 'Escape' && isOpen) {
       onClose();
@@ -33,21 +48,13 @@ function MenuOverlay({ isOpen, onClose }) {
                   <span>All Products</span> <NavArrowRight />
                 </Link>
               </li>
-              <li>
-                <a href=''>
-                  <span>Men</span> <NavArrowRight />
-                </a>
-              </li>
-              <li>
-                <a href=''>
-                  <span>Women</span> <NavArrowRight />
-                </a>{' '}
-              </li>
-              <li>
-                <a href=''>
-                  <span>Jewelery</span> <NavArrowRight />
-                </a>{' '}
-              </li>
+              {categories.map((category) => (
+                <li onClick={onClose}>
+                  <Link to={`store/${encodeURIComponent(category.category)}`}>
+                    <span>{category.displayName}</span> <NavArrowRight />
+                  </Link>
+                </li>
+              ))}
             </ul>
           </nav>
           <br />

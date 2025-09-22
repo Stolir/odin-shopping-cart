@@ -59,6 +59,6 @@ export const featuredProductsLoader = async () => {
 
     return result;
   } catch (err) {
-    throw new Response('Failed to load showcase products', { status: 500 });
+    throw new Error(`Failed to load products ${err.message}`);
   }
 };

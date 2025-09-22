@@ -7,7 +7,9 @@ import CartPage from './pages/CartPage';
 import ProfilePage from './pages/ProfilePage';
 import StoreLayout from './layouts/StoreLayout/StoreLayout';
 import ShowcaseSection from './components/ShowcaseSection/ShowcaseSection';
-import CategoryWrapper from './components/CategoryWrapper/CategoryWrapper';
+import CategoryWrapper, {
+  categoryProductsLoader,
+} from './components/CategoryWrapper/CategoryWrapper';
 
 const router = createBrowserRouter([
   {
@@ -29,7 +31,11 @@ const router = createBrowserRouter([
         element: <StoreLayout />,
         children: [
           { index: true, element: <StorePage />, loader: allProductsLoader },
-          { path: ':category', element: <CategoryWrapper /> },
+          {
+            path: ':category',
+            element: <CategoryWrapper />,
+            loader: categoryProductsLoader,
+          },
         ],
       },
       {
