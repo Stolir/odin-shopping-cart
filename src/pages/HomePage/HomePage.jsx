@@ -40,12 +40,12 @@ export default HomePage;
 const baseUrl = 'https://fakestoreapi.com';
 const featuredCategories = ['jewelery'];
 
-export const allProductsLoader = async () => {
+export const featuredProductsLoader = async () => {
   try {
     const responses = await Promise.all(
       featuredCategories.map((cat) =>
         fetch(
-          `${baseUrl}/products/category/${encodeURIComponent(cat)}?limit=4`,
+          `${baseUrl}/products/category/${encodeURIComponent(cat)}?limit=3`,
         ),
       ),
     );
