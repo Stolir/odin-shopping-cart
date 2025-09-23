@@ -10,6 +10,7 @@ import ShowcaseSection from './components/ShowcaseSection/ShowcaseSection';
 import CategoryWrapper, {
   categoryProductsLoader,
 } from './components/CategoryWrapper/CategoryWrapper';
+import ProductPage from './pages/ProductPage/ProductPage';
 
 const router = createBrowserRouter([
   {
@@ -37,6 +38,10 @@ const router = createBrowserRouter([
             loader: categoryProductsLoader,
           },
         ],
+      },
+      {
+        path: '/product/:id',
+        element: <ProductPage />,
       },
       {
         path: 'cart',
