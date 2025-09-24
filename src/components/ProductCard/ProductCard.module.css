@@ -6,6 +6,8 @@
   height: auto;
   gap: 1rem;
   flex-shrink: 0;
+  text-decoration: none;
+  color: inherit;
 }
 
 .productCard img {
