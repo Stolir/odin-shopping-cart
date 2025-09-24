@@ -49,7 +49,7 @@ function MenuOverlay({ isOpen, onClose }) {
                 </Link>
               </li>
               {categories.map((category) => (
-                <li onClick={onClose}>
+                <li onClick={onClose} key={category.category}>
                   <Link to={`store/${encodeURIComponent(category.category)}`}>
                     <span>{category.displayName}</span> <NavArrowRight />
                   </Link>
