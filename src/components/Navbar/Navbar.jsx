@@ -5,6 +5,7 @@ import { Link } from 'react-router';
 import { useState } from 'react';
 import SearchOverlay from '../SearchOverlay/SearchOverlay';
 import MenuOverlay from '../MenuOverlay/MenuOverlay';
+import { useCart } from '../../context/CartContext';
 
 function Navbar() {
   const [isSearching, setIsSearching] = useState(false);
@@ -18,6 +19,10 @@ function Navbar() {
   const toggleMenu = () => {
     setIsMenuOpen(isMenuOpen ? false : true);
   };
+
+  const { cartItems } = useCart();
+
+  const itemCount = cartItems.reduce((total, item) => total + item.quantity, 0);
 
   return (
     <>
@@ -57,7 +62,12 @@ function Navbar() {
           className={`${styles.link} ${styles.cart}`}
           aria-label='go to cart'
         >
-          <ShoppingBag width={18} height={18} aria-hidden='true' />
+          <ShoppingBag width={18} height={18} aria-hidden='true' />{' '}
+          {cartItems.length > 0 && (
+            <span aria-label='cart item count' className={styles.itemCounter}>
+              {itemCount}
+            </span>
+          )}
         </Link>
       </header>
 

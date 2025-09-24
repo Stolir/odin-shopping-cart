@@ -2,6 +2,24 @@ import { render, screen } from '@testing-library/react';
 import Navbar from './Navbar';
 import userEvent from '@testing-library/user-event';
 import { MemoryRouter, Route, Routes } from 'react-router';
+import { expect, vi } from 'vitest';
+
+const mockCartItems = [
+  { id: 0, quantity: 3 },
+  { id: 1, quantity: 2 },
+];
+
+const cartItemCount = 5;
+
+vi.mock('../../context/CartContext', async () => {
+  const actual = await vi.importActual('../../context/CartContext');
+  return {
+    ...actual,
+    useCart: () => ({
+      cartItems: mockCartItems,
+    }),
+  };
+});
 
 describe('Navbar', () => {
   const mockRoutes = [
@@ -102,5 +120,13 @@ describe('Navbar', () => {
     expect(
       await screen.findByRole('heading', { name: /home page/i }),
     ).toBeInTheDocument();
+  });
+
+  it('should render correct amount of cart items', () => {
+    renderNavbar();
+
+    expect(screen.getByLabelText(/.*cart.*item.*/i)).toHaveTextContent(
+      cartItemCount,
+    );
   });
 });

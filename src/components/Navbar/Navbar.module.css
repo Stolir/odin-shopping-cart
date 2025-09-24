@@ -11,7 +11,6 @@
   background-color: rgb(255, 255, 255);
 }
 
-
 .logo {
   margin: auto;
   position: absolute;
@@ -19,7 +18,11 @@
   transform: translateX(-50%);
 }
 
-.menu, .search, .profile, .cart, .logo {
+.menu,
+.search,
+.profile,
+.cart,
+.logo {
   flex-shrink: 0;
 }
 
@@ -29,6 +32,22 @@
 
 .cart {
   margin-right: 3vw;
+  position: relative;
+}
+
+.cart .itemCounter {
+  position: absolute;
+  width: auto;
+  height: auto;
+  background-color: rgb(0, 0, 0);
+  color: rgb(255, 255, 255);
+  padding: 0.2rem 0.4rem;
+  border-radius: 45%;
+  font-size: 0.6rem;
+  font-weight: 900;
+
+  top: -3px;
+  right: -3px;
 }
 
 .link {
@@ -41,7 +60,8 @@
   background: none;
 }
 
-.button, .link {
+.button,
+.link {
   cursor: pointer;
   padding: 0.5rem;
   width: max-content;
@@ -54,13 +74,15 @@
   height: 26px;
 }
 
-.menu, .search {
+.menu,
+.search {
   display: flex;
   align-items: center;
   gap: 0.6rem;
 }
 
-.menu span, .search span {
+.menu span,
+.search span {
   font-weight: 400;
   font-size: 0.8rem;
 }
@@ -70,7 +92,8 @@
 }
 
 @media (max-width: 768px) {
-  .menu span, .search span  {
+  .menu span,
+  .search span {
     display: none;
   }
 
@@ -84,5 +107,5 @@
     width: auto;
     margin: auto;
     height: 22px;
-}
+  }
 }
