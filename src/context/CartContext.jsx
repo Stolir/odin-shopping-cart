@@ -15,7 +15,7 @@ function CartProvider({ children }) {
             ? {
                 ...item,
                 quantity: item.quantity + quantity,
-                price: product.price * (item.quantity + quantity),
+                totalPrice: product.unitPrice * (item.quantity + quantity),
               }
             : item,
         );
@@ -27,7 +27,8 @@ function CartProvider({ children }) {
             title: product.title,
             image: product.image,
             quantity: quantity,
-            price: product.price * quantity,
+            unitPrice: product.price,
+            totalPrice: product.price * quantity,
           },
         ];
       }
@@ -38,7 +39,11 @@ function CartProvider({ children }) {
     setCartItems((prevCart) =>
       prevCart.map((item) =>
         item.id === product.id
-          ? { ...item, quantity: item.quantity + 1 }
+          ? {
+              ...item,
+              quantity: item.quantity + 1,
+              totalPrice: item.unitPrice * (item.quantity + 1),
+            }
           : item,
       ),
     );
@@ -52,7 +57,11 @@ function CartProvider({ children }) {
       } else {
         return prevCart.map((item) =>
           item.id === product.id
-            ? { ...item, quantity: item.quantity - 1 }
+            ? {
+                ...item,
+                quantity: item.quantity - 1,
+                totalPrice: item.unitPrice * (item.quantity - 1),
+              }
             : item,
         );
       }
