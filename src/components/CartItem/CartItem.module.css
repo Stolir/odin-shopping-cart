@@ -55,6 +55,7 @@
 
 .priceContainer {
   min-width: 45px;
+  margin-left: 1rem;
 }
 
 .quantityContainer button {
@@ -63,4 +64,21 @@
   background: none;
   width: 18px;
   padding: 0;
+}
+
+@media (max-width: 500px) {
+  .cartItem {
+    flex-direction: column;
+    max-height: none;
+    justify-content: flex-start;
+    gap: 1rem;
+  }
+
+  .cartItem a {
+    text-align: center;
+  }
+
+  .priceContainer {
+    margin: 0;
+  }
 }
