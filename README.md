@@ -1,12 +1,75 @@
-# React + Vite
+# Shopping Cart
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A simple shopping store frontend built with **[FakeStoreAPI](https://fakestoreapi.com/)**.
+This project demonstrates fetching products, displaying them in a storefront, and managing a shopping cart.
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Features
 
-## Expanding the ESLint configuration
+- 📦 Fetch products from FakeStoreAPI
+- 🔎 View product details
+- 🛒 Add/remove items to/from cart
+- 💰 View total cart price
+- 📱 Responsive design
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+---
+
+## Tech Stack
+
+- **Frontend:** React
+- **API:** [FakeStoreAPI](https://fakestoreapi.com/)
+- **Styling:** CSS Modules
+
+---
+
+## Getting Started
+
+### 1. Clone the repo
+
+```bash
+git clone https://github.com/Stolir/odin-shopping-cart.git
+cd odin-shopping-cart
+```
+
+### 2. Install dependencies
+
+```bash
+npm install
+```
+
+### 3. Run the app
+
+```bash
+npm run dev
+```
+
+The app will be available at:
+👉 `http://localhost:5173/`
+
+---
+
+## 🔗 API Reference
+
+This project uses [FakeStoreAPI](https://fakestoreapi.com/).
+
+### Example endpoints:
+
+- **Get all products:**
+  `GET https://fakestoreapi.com/products`
+- **Get single product:**
+  `GET https://fakestoreapi.com/products/:id`
+- **Get all categories:**
+  `GET https://fakestoreapi.com/products/categories`
+
+---
+
+## Testing
+
+This project uses **[Vitest](https://vitest.dev/)** as the test runner and **[React Testing Library](https://testing-library.com/docs/react-testing-library/intro/)** for component testing.
+
+#### Run all tests:
+
+```bash
+npm test
+```
