@@ -1,7 +1,7 @@
 function ProfilePage() {
   return (
     <div className='pagePlaceholder'>
-      <h1>Profile Page</h1>
+      <h1>Placeholder Page</h1>
     </div>
   );
 }
