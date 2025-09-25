@@ -32,24 +32,28 @@ function ProductPage() {
           Quantity
           <div>
             {quantity > 1 && (
-              <Minus
+              <button
                 role='button'
                 aria-label='remove 1'
                 onClick={() => {
                   setQuantity(quantity - 1);
                 }}
-              />
+              >
+                <Minus />
+              </button>
             )}
             <span aria-label='product quantity' className='no-select'>
               {quantity}
             </span>
-            <Plus
+            <button
               role='button'
               aria-label='add 1'
               onClick={() => {
                 setQuantity(quantity + 1);
               }}
-            />
+            >
+              <Plus />
+            </button>
           </div>
         </div>
         <button

@@ -60,6 +60,12 @@
   align-items: center;
 }
 
+.quantityContainer button {
+  cursor: pointer;
+  background: none;
+  border: none;
+}
+
 .quantityContainer svg {
   flex-shrink: 0;
   cursor: pointer;
@@ -68,7 +74,7 @@
 .addToBag {
   display: flex;
   justify-content: space-between;
-  border: none;
+  border: 1px black solid;
   background-color: black;
   color: white;
   padding: 1rem;
@@ -89,7 +95,7 @@
 }
 
 .addToBag:hover {
-  background-color: rgba(0, 0, 0, 0.295);
+  background-color: rgb(255, 255, 255);
   color: black;
 }
 
