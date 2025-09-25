@@ -15,7 +15,7 @@ function CartProvider({ children }) {
             ? {
                 ...item,
                 quantity: item.quantity + quantity,
-                totalPrice: product.unitPrice * (item.quantity + quantity),
+                totalPrice: item.unitPrice * (item.quantity + quantity),
               }
             : item,
         );
