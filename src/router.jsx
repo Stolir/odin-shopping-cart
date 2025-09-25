@@ -3,10 +3,9 @@ import App from './App';
 import RoutingError from './components/RoutingError/RoutingError';
 import HomePage, { featuredProductsLoader } from './pages/HomePage/HomePage';
 import StorePage, { allProductsLoader } from './pages/StorePage/StorePage';
-import CartPage from './pages/CartPage';
-import ProfilePage from './pages/ProfilePage';
+import CartPage from './pages/CartPage/CartPage';
+import ProfilePage from './pages/ProfilePage/ProfilePage';
 import StoreLayout from './layouts/StoreLayout/StoreLayout';
-import ShowcaseSection from './components/ShowcaseSection/ShowcaseSection';
 import CategoryWrapper, {
   categoryProductsLoader,
 } from './components/CategoryWrapper/CategoryWrapper';
