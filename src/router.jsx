@@ -4,7 +4,6 @@ import RoutingError from './components/RoutingError/RoutingError';
 import HomePage, { featuredProductsLoader } from './pages/HomePage/HomePage';
 import StorePage, { allProductsLoader } from './pages/StorePage/StorePage';
 import CartPage from './pages/CartPage/CartPage';
-import ProfilePage from './pages/ProfilePage/ProfilePage';
 import StoreLayout from './layouts/StoreLayout/StoreLayout';
 import CategoryWrapper, {
   categoryProductsLoader,
