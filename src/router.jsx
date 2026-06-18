@@ -25,10 +25,6 @@ const router = createBrowserRouter([
         loader: featuredProductsLoader,
       },
       {
-        path: 'profile',
-        element: <ProfilePage />,
-      },
-      {
         path: 'store',
         element: <StoreLayout />,
         children: [
