@@ -50,14 +50,6 @@ function Navbar() {
         </Link>
 
         <Link
-          to='/profile'
-          className={`${styles.link} ${styles.profile}`}
-          aria-label='go to profile'
-        >
-          <User width={18} height={18} aria-hidden='true' />
-        </Link>
-
-        <Link
           to='/cart'
           className={`${styles.link} ${styles.cart}`}
           aria-label='go to cart'

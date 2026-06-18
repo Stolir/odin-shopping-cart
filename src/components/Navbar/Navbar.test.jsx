@@ -24,7 +24,6 @@ vi.mock('../../context/CartContext', async () => {
 describe('Navbar', () => {
   const mockRoutes = [
     { path: '/', element: <h1>Home Page</h1> },
-    { path: 'profile', element: <h1>Profile Page</h1> },
     { path: 'cart', element: <h1>Cart Page</h1> },
   ];
   const renderNavbar = () => {
@@ -48,9 +47,6 @@ describe('Navbar', () => {
     ).toBeInTheDocument();
     expect(
       screen.queryByRole('button', { name: /^search$/i }),
-    ).toBeInTheDocument();
-    expect(
-      screen.queryByRole('link', { name: /go.*profile/i }),
     ).toBeInTheDocument();
     expect(
       screen.queryByRole('link', { name: /go.*cart/i }),
@@ -84,18 +80,6 @@ describe('Navbar', () => {
     });
 
     expect(searchBar).toBeInTheDocument();
-  });
-
-  it('should render profile page when profile is clicked', async () => {
-    renderNavbar();
-    const user = userEvent.setup();
-    const profileBtn = screen.getByRole('link', { name: /go.*profile/i });
-
-    await user.click(profileBtn);
-
-    expect(
-      await screen.findByRole('heading', { name: /profile page/i }),
-    ).toBeInTheDocument();
   });
 
   it('should render cart page when cart is clicked', async () => {

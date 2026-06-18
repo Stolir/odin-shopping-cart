@@ -2,7 +2,7 @@
   position: relative;
   display: flex;
   grid-template-columns: max-content max-content 1fr max-content max-content;
-  grid-template-areas: 'menu search logo profile cart';
+  grid-template-areas: 'menu search logo  cart';
   width: 100%;
   align-items: center;
   justify-items: center;
@@ -20,7 +20,6 @@
 
 .menu,
 .search,
-.profile,
 .cart,
 .logo {
   flex-shrink: 0;
